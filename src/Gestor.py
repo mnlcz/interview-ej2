@@ -1,4 +1,5 @@
 ﻿import requests
+
 from bs4 import BeautifulSoup
 from src.Cotizaciones import Cotizaciones
 from src.Divisa import Divisa
