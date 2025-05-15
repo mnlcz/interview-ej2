@@ -1,0 +1,18 @@
+title Ejercicio 2
+
+actor User
+User->Sistema:getdata(fecha)
+alt Fecha valida
+Sistema->Gestor:update(fecha)
+loop divisa in parsed_data
+Gestor->Divisa:init(codigo, nombre,compra,venta,pase_compra,pase_venta)
+Gestor<--Divisa:divisa
+end
+
+Gestor->Cotizaciones:init(fecha, divisas)
+
+Gestor<--Cotizaciones:cotizaciones
+Sistema<--Gestor:cotizaciones
+else Fecha invalida
+Sistema--xUser:No se puede obtener las cotizaciones de esa fecha
+end
