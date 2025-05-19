@@ -1,6 +1,7 @@
 ﻿import os
 from datetime import datetime
 
+from src.Gestor import Gestor
 from src.Sistema import Sistema
 
 # Debería incluir opciones para consultar el histórico

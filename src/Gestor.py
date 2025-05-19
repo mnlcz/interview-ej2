@@ -7,9 +7,12 @@ from src.Divisa import Divisa
 class Gestor:
     @staticmethod
     def update(fecha: str) -> Cotizaciones:
+        data = {
+            'txtFDesde': fecha,
+        }
         url = "http://b2b.sif.com.ar/Servicios/Aplicaciones/Cotizacion/CotizacionesList.asp"
         out = []
-        res = requests.post(url, data=fecha)
+        res = requests.post(url, data=data)
         if res.status_code == 200:
             soup = BeautifulSoup(res.text, 'html.parser')
             xml_data = soup.find('xml', {'id': 'list_xml'})
